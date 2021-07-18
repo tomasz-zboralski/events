@@ -5,9 +5,13 @@ import com.crud.events.domain.EventDto;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Mapper(componentModel = "spring")
 @Service
 public interface EventMapper {
     Event mapToEvent(EventDto eventDto);
     EventDto mapToEventDto(Event event);
+    Set<Event> mapToEventSet(Set<EventDto> eventDtoSet);
+    Set<EventDto> mapToEventDtoSet(Set<Event> eventSet);
 }
