@@ -10,7 +10,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EventDto {
-    private Long event_id;
+    private Long eventId;
     private String name;
     private String description;
     private Set<User> users;

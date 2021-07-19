@@ -28,7 +28,7 @@ class EventMapperTest {
 
         //then
         assertThat(event).isNotNull();
-        assertThat(event.getEvent_id()).isEqualTo(1L);
+        assertThat(event.getEventId()).isEqualTo(1L);
         assertThat(event.getName()).isEqualTo("Test");
         assertThat(event.getDescription()).isEqualTo("Test Description");
         assertTrue(event.getUsers().isEmpty());
@@ -45,7 +45,7 @@ class EventMapperTest {
 
         //then
         assertThat(eventDto).isNotNull();
-        assertThat(eventDto.getEvent_id()).isEqualTo(1L);
+        assertThat(eventDto.getEventId()).isEqualTo(1L);
         assertThat(eventDto.getName()).isEqualTo("Test");
         assertThat(eventDto.getDescription()).isEqualTo("Test Description");
         assertTrue(eventDto.getUsers().isEmpty());

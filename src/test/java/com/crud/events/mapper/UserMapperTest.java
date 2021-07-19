@@ -28,7 +28,7 @@ class UserMapperTest {
 
         //then
         assertThat(user).isNotNull();
-        assertThat(user.getUser_id()).isEqualTo(1L);
+        assertThat(user.getUserId()).isEqualTo(1L);
         assertThat(user.getName()).isEqualTo("Test User");
         assertTrue(user.getEvents().isEmpty());
 
@@ -45,7 +45,7 @@ class UserMapperTest {
 
         //then
         assertThat(userDto).isNotNull();
-        assertThat(userDto.getUser_id()).isEqualTo(1L);
+        assertThat(userDto.getUserId()).isEqualTo(1L);
         assertThat(userDto.getName()).isEqualTo("Test User");
         assertTrue(userDto.getEvents().isEmpty());
 

@@ -18,7 +18,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EVENT_ID")
-    private Long event_id;
+    private Long eventId;
     private String name;
     private String description;
     @ManyToMany
