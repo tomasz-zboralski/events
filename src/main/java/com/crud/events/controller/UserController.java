@@ -12,6 +12,7 @@ import java.util.Set;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@CrossOrigin("*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("v1/users")
