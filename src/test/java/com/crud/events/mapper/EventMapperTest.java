@@ -21,7 +21,7 @@ class EventMapperTest {
     void mapToEventTest() {
 
         //given
-        EventDto eventDto = new EventDto(1L, "Test", "Test Description", new HashSet<>());
+        EventDto eventDto = new EventDto(1L, "Test", "Test Description");
 
         //when
         Event event = eventMapper.mapToEvent(eventDto);
@@ -31,14 +31,13 @@ class EventMapperTest {
         assertThat(event.getEventId()).isEqualTo(1L);
         assertThat(event.getName()).isEqualTo("Test");
         assertThat(event.getDescription()).isEqualTo("Test Description");
-        assertTrue(event.getUsers().isEmpty());
     }
 
     @Test
     void mapToEventDtoTest() {
 
         //given
-        Event event = new Event(1L, "Test", "Test Description", new HashSet<>());
+        Event event = new Event(1L, "Test", "Test Description");
 
         //when
         EventDto eventDto = eventMapper.mapToEventDto(event);
@@ -48,7 +47,6 @@ class EventMapperTest {
         assertThat(eventDto.getEventId()).isEqualTo(1L);
         assertThat(eventDto.getName()).isEqualTo("Test");
         assertThat(eventDto.getDescription()).isEqualTo("Test Description");
-        assertTrue(eventDto.getUsers().isEmpty());
 
     }
 }

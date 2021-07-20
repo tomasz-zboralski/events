@@ -21,7 +21,7 @@ class UserMapperTest {
     void mapToUserTest() {
 
         //given
-        UserDto userDto = new UserDto(1L, "Test User", new HashSet<>());
+        UserDto userDto = new UserDto(1L, "Test User");
 
         //when
         User user = userMapper.mapToUser(userDto);
@@ -30,7 +30,6 @@ class UserMapperTest {
         assertThat(user).isNotNull();
         assertThat(user.getUserId()).isEqualTo(1L);
         assertThat(user.getName()).isEqualTo("Test User");
-        assertTrue(user.getEvents().isEmpty());
 
     }
 
@@ -38,7 +37,7 @@ class UserMapperTest {
     void mapToUserDtoTest() {
 
         //given
-        User user = new User(1L, "Test User", new HashSet<>());
+        User user = new User(1L, "Test User");
 
         //when
         UserDto userDto = userMapper.mapToUserDto(user);
@@ -47,7 +46,6 @@ class UserMapperTest {
         assertThat(userDto).isNotNull();
         assertThat(userDto.getUserId()).isEqualTo(1L);
         assertThat(userDto.getName()).isEqualTo("Test User");
-        assertTrue(userDto.getEvents().isEmpty());
 
     }
 

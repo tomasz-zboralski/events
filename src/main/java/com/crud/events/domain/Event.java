@@ -1,8 +1,6 @@
 package com.crud.events.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,7 +8,6 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "EVENTS")
 public class Event {
@@ -24,9 +21,14 @@ public class Event {
     @ManyToMany
     @JoinTable(
             name = "JOIN_EVENT_USER",
-            joinColumns = {@JoinColumn(name = "EVENT_ID", referencedColumnName = "EVENT_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")}
+            joinColumns = {@JoinColumn(name = "EVENT_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "USER_ID")}
     )
     private Set<User> users = new HashSet<>();
 
+    public Event(Long eventId, String name, String description) {
+        this.eventId = eventId;
+        this.name = name;
+        this.description = description;
+    }
 }

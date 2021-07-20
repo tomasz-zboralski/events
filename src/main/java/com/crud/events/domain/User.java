@@ -1,16 +1,14 @@
 package com.crud.events.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(of = {"userId", "name" })
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "USERS")
 public class User {
@@ -20,7 +18,12 @@ public class User {
     @Column(name = "USER_ID")
     private Long userId;
     private String name;
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "users")
+
+    @ManyToMany(mappedBy = "users")
     private Set<Event> events = new HashSet<>();
 
+    public User(Long userId, String name) {
+        this.userId = userId;
+        this.name = name;
+    }
 }

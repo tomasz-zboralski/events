@@ -2,8 +2,10 @@ package com.crud.events.controller;
 
 import com.crud.events.domain.Event;
 import com.crud.events.domain.EventDto;
+import com.crud.events.domain.UserDto;
 import com.crud.events.exception.EventNotFoundException;
 import com.crud.events.mapper.EventMapper;
+import com.crud.events.mapper.UserMapper;
 import com.crud.events.service.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,7 @@ public class EventController {
 
     private final EventService eventService;
     private final EventMapper eventMapper;
+    private final UserMapper userMapper;
 
     @GetMapping()
     public Set<EventDto> getAllEvents() {
@@ -45,5 +48,15 @@ public class EventController {
     @DeleteMapping(value = "/{eventId}")
     public void deleteEvent(@PathVariable Long eventId) {
         eventService.deleteEvent(eventId);
+    }
+
+    @PutMapping(value = "/{eventId}/{userId}")
+    public Set<UserDto> addParticipant(@PathVariable Long eventId, @PathVariable Long userId) {
+        return userMapper.mapToUserDtoSet(eventService.addParticipant(eventId, userId));
+    }
+
+    @DeleteMapping(value = "/{eventId}/{userId}")
+    public void removeParticipant(@PathVariable Long eventId, @PathVariable Long userId) {
+        eventService.removeParticipant(eventId, userId);
     }
 }
