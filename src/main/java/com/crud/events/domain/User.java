@@ -1,5 +1,6 @@
 package com.crud.events.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class User {
     private Long userId;
     private String name;
 
+    @JsonBackReference
     @ManyToMany(mappedBy = "users")
     private Set<Event> events = new HashSet<>();
 
