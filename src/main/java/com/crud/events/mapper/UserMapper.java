@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = EventMapperImpl.class)
+@Mapper(componentModel = "spring", uses = EventMapper.class)
 @Service
 public interface UserMapper {
     User mapToUser(UserDto userDto);
