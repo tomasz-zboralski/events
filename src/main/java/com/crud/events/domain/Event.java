@@ -2,8 +2,10 @@ package com.crud.events.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +19,11 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EVENT_ID")
     private Long eventId;
+    @Enumerated(EnumType.STRING)
+    private EventType eventType;
+    private LocalDateTime startTime;
+    private String place;
+    @Length(max = 50)
     private String name;
     private String description;
     @JsonManagedReference

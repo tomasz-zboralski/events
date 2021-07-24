@@ -21,7 +21,9 @@ class UserMapperTest {
     void mapToUserTest() {
 
         //given
-        UserDto userDto = new UserDto(1L, "Test User");
+        UserDto userDto = new UserDto();
+        userDto.setUserId(1L);
+        userDto.setName("Test User");
 
         //when
         User user = userMapper.mapToUser(userDto);

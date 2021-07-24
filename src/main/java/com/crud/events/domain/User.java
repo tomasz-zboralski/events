@@ -2,8 +2,10 @@ package com.crud.events.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,7 +20,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID")
     private Long userId;
+    @Length(max = 50)
     private String name;
+    @Email
+    private String email;
 
     @JsonBackReference
     @ManyToMany(mappedBy = "users")

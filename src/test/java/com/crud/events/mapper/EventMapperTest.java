@@ -21,7 +21,10 @@ class EventMapperTest {
     void mapToEventTest() {
 
         //given
-        EventDto eventDto = new EventDto(1L, "Test", "Test Description", new HashSet<>());
+        EventDto eventDto = new EventDto();
+        eventDto.setEventId(1L);
+        eventDto.setName("Test");
+        eventDto.setDescription("Test Description");
 
         //when
         Event event = eventMapper.mapToEvent(eventDto);
