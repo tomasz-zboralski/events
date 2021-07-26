@@ -2,4 +2,7 @@
 
 Create Events and add participators.
 
-Live app: https://eventssss.herokuapp.com/ 
+This is only back-end REST API, front end code available here: https://github.com/tomasz-zboralski/events_frontend
+
+Front-end online: https://eventzboralski.herokuapp.com/
+Back-end online: https://eventssss.herokuapp.com/ 
